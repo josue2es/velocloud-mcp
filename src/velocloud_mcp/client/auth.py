@@ -6,6 +6,6 @@ from velocloud_mcp.config import Settings
 def auth_headers(settings: Settings) -> dict[str, str]:
     """Token auth: the Orchestrator expects the API token in an Authorization header."""
     return {
-        "Authorization": f"Token {settings.token}",
+        "Authorization": f"Token {settings.token.get_secret_value()}",
         "Content-Type": "application/json",
     }
